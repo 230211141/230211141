@@ -1,0 +1,37 @@
+#include <stdio.h>
+int main() 
+{
+    int m, n;
+    printf("Enter the number of rows: ");
+    scanf("%d", &m);
+    printf("Enter the number of columns: ");
+    scanf("%d", &n);
+    int matrix[m][n];
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    int largest = matrix[0][0];
+    int smallest = matrix[0][0];
+    for (int i = 0; i < m; i++) 
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (matrix[i][j] > largest) 
+            {
+                largest = matrix[i][j];
+            }
+            if (matrix[i][j] < smallest) 
+            {
+                smallest = matrix[i][j];
+            }
+        }
+    }
+    printf("\nThe largest element in the matrix: %d\n", largest);
+    printf("The smallest element in the matrix: %d\n", smallest);
+    return 0;
+}
