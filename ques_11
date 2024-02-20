@@ -1,0 +1,27 @@
+#include <stdio.h>
+void moveDisk(int n, char sou, char desti) 
+{
+    printf("Move disk %d from pole %c to pole %c\n", n, sou, desti);
+}
+void towerOfHanoi(int n, char sou, char auxiliary, char desti) 
+{
+    
+    if (n == 1)
+    {
+        moveDisk(n, sou, desti);
+        return;
+    }
+    towerOfHanoi(n - 1, sou, desti, auxiliary);
+    moveDisk(n, sou, desti);
+    towerOfHanoi(n - 1, auxiliary, sou, desti);
+}
+
+int main() 
+{
+    int numDisks;
+    printf("Enter the number of disks: ");
+    scanf("%d", &numDisks);
+    printf("Steps to solve Tower of Hanoi with %d disks:\n", numDisks);
+    towerOfHanoi(numDisks, 'A', 'B', 'C');
+    return 0;
+}
